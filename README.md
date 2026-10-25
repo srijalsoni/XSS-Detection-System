@@ -1,4 +1,4 @@
-# P_211 - Defensive Web Application for XSS Attack Detection, Prevention and Security Monitoring
+#  Defensive Web Application for XSS Attack Detection, Prevention and Security Monitoring
 
 ## Project Status
 **Phase 9 Complete — Final Hardening, Packaging & Comprehensive Defense Documentation**
