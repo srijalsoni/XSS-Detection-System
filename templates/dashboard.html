@@ -1,0 +1,129 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Security Monitoring Dashboard — Cross-Site Scripting (XSS) Attack Detection{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Header & Controls -->
+    <div class="dashboard-header-row">
+        <div class="dashboard-title-group">
+            <h1>🛡️ Security Telemetry &amp; Attack Monitoring</h1>
+            <p>Real-time visual analytics of XSS detection signatures, response mitigations, and attack surfaces.</p>
+        </div>
+        <div class="dashboard-controls">
+            <div class="filter-btn-group" id="time-filter-group">
+                <button type="button" class="filter-btn" data-range="24h">Last 24h</button>
+                <button type="button" class="filter-btn" data-range="7d">Last 7d</button>
+                <button type="button" class="filter-btn" data-range="30d">Last 30d</button>
+                <button type="button" class="filter-btn active" data-range="all">All Time</button>
+            </div>
+            <button type="button" class="refresh-btn" id="btn-refresh">
+                <span>🔄</span> Refresh
+            </button>
+        </div>
+    </div>
+
+    <!-- Summary Metric Cards -->
+    <div class="metrics-grid">
+        <div class="metric-card total">
+            <span class="metric-title">Total Security Events</span>
+            <span class="metric-value" id="val-total-events">0</span>
+            <span class="metric-desc">Total threats observed</span>
+        </div>
+        <div class="metric-card critical">
+            <span class="metric-title">Critical Threats</span>
+            <span class="metric-value" id="val-critical-events">0</span>
+            <span class="metric-desc">Compound exploit vectors</span>
+        </div>
+        <div class="metric-card high">
+            <span class="metric-title">High Risk Incidents</span>
+            <span class="metric-value" id="val-high-events">0</span>
+            <span class="metric-desc">Direct signature detections</span>
+        </div>
+        <div class="metric-card blocked">
+            <span class="metric-title">Requests Blocked</span>
+            <span class="metric-value" id="val-blocked-events">0</span>
+            <span class="metric-desc">Actively halted (HTTP 403)</span>
+        </div>
+    </div>
+
+    <!-- Main Charts: Timeline & Risk -->
+    <div class="charts-grid-main">
+        <div class="chart-card">
+            <h3>📈 Threat Activity Over Time</h3>
+            <div class="chart-container-wrapper">
+                <canvas id="chart-timeline"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>🎯 Risk Level Distribution</h3>
+            <div class="chart-container-wrapper">
+                <canvas id="chart-risk"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secondary Charts: Actions, Rules, Endpoints -->
+    <div class="charts-grid-secondary">
+        <div class="chart-card">
+            <h3>🛡️ Response Actions</h3>
+            <div class="chart-container-wrapper">
+                <canvas id="chart-actions"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>🔍 Detection Rule Frequency</h3>
+            <div class="chart-container-wrapper">
+                <canvas id="chart-rules"></canvas>
+            </div>
+        </div>
+        <div class="chart-card">
+            <h3>🌐 Targeted Endpoints</h3>
+            <div class="chart-container-wrapper">
+                <canvas id="chart-endpoints"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Security Events Table -->
+    <div class="events-table-card">
+        <div class="events-table-header">
+            <h3>📋 Recent Security Telemetry Logs</h3>
+            <span id="last-updated-text" style="font-size: 0.8rem; color: #94a3b8;">Updated: Just now</span>
+        </div>
+        <div class="table-responsive">
+            <table class="telemetry-table" id="telemetry-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp (UTC)</th>
+                        <th>Endpoint</th>
+                        <th>Method</th>
+                        <th>Field</th>
+                        <th>Risk Level</th>
+                        <th>Action</th>
+                        <th>Rule ID</th>
+                        <th>Reasoning</th>
+                    </tr>
+                </thead>
+                <tbody id="telemetry-tbody">
+                    <!-- Populated dynamically via DOM APIs -->
+                </tbody>
+            </table>
+            <div id="empty-table-msg" class="empty-telemetry-msg" style="display: none;">
+                No security telemetry events recorded for this timeframe.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Locally hosted vendor Chart.js bundle (Strict CSP compliant) -->
+<script src="{{ url_for('static', filename='js/vendor/chart.umd.js') }}"></script>
+<!-- Dashboard UI orchestration script -->
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

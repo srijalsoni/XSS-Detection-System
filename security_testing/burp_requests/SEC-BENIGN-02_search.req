@@ -1,0 +1,9 @@
+POST /search HTTP/1.1
+Host: 127.0.0.1:5000
+User-Agent: Mozilla/5.0 (Burp-Replay-SecTest)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 67
+Connection: close
+
+query=Evaluate+whether+x+%3C+10+and+y+%3E+20+in+the+loop+condition.

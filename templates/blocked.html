@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Request Prohibited - Security Advisory{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="card" style="max-width: 650px; margin: 2rem auto; text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+        <h2 style="color: #dc2626;">Request Not Processed</h2>
+        <p class="subtitle" style="font-size: 1.1rem; color: #4b5563;">
+            {{ message }}
+        </p>
+        <div style="margin: 2rem 0; padding: 1rem; background-color: #fef2f2; border: 1px solid #fee2e2; border-radius: 6px; text-align: left; font-size: 0.9rem; color: #991b1b;">
+            <strong>Advisory Notice:</strong> The defensive security engine identified suspicious or non-compliant syntax matching prohibited client-side injection indicators. For security purposes, this operation has been halted.
+        </div>
+        <div style="margin-top: 1.5rem;">
+            <a href="{{ url_for('features.search') }}" class="btn btn-secondary" style="margin-right: 0.5rem;">Return to Search</a>
+            <a href="{{ url_for('main.home') }}" class="btn btn-primary">Go to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

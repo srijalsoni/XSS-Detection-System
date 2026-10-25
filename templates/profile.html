@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}User Profile — Cross-Site Scripting (XSS) Attack Detection{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="card">
+        <h2>Public Security Profile</h2>
+        <p class="subtitle">Manage public researcher profile information. Strictly public details without credentials.</p>
+
+        {% if validation_error %}
+        <div class="alert alert-error">
+            <strong>Validation Error:</strong> {{ validation_error }}
+        </div>
+        {% endif %}
+
+        {% if success_message %}
+        <div class="alert alert-success">
+            <strong>Success:</strong> {{ success_message }}
+        </div>
+        {% endif %}
+
+        <div class="profile-layout">
+            <div class="profile-form-column">
+                <form action="{{ url_for('features.profile') }}" method="POST" class="standard-form">
+                    <div class="form-group">
+                        <label for="display_name">Display Name (Required, max 60 chars)</label>
+                        <input 
+                            type="text" 
+                            id="display_name" 
+                            name="display_name" 
+                            value="{{ profile.display_name }}" 
+                            maxlength="60" 
+                            class="form-control"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Bio Summary (Max 300 chars)</label>
+                        <textarea 
+                            id="bio" 
+                            name="bio" 
+                            rows="3" 
+                            maxlength="300" 
+                            class="form-control"
+                        >{{ profile.bio }}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="website">Website / Lab URL (Max 100 chars)</label>
+                        <input 
+                            type="text" 
+                            id="website" 
+                            name="website" 
+                            value="{{ profile.website }}" 
+                            maxlength="100" 
+                            class="form-control"
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </form>
+            </div>
+
+            <div class="profile-preview-column">
+                <div class="preview-badge">Live Public Preview</div>
+                <div class="preview-card">
+                    <div class="avatar-circle">
+                        {{ profile.display_name[:1] | upper }}
+                    </div>
+                    <h3 class="preview-name">{{ profile.display_name }}</h3>
+                    <p class="preview-bio">{{ profile.bio if profile.bio else "No bio provided." }}</p>
+                    {% if profile.website %}
+                    <div class="preview-web">
+                        <span>🔗 </span><span class="preview-url-text">{{ profile.website }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

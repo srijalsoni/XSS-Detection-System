@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Search — Cross-Site Scripting (XSS) Attack Detection{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="card">
+        <h2>Knowledge Search Portal</h2>
+        <p class="subtitle">Search local articles and documentation across cybersecurity, Python, and web topics.</p>
+
+        {% if validation_error %}
+        <div class="alert alert-error">
+            <strong>Validation Notice:</strong> {{ validation_error }}
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('features.search') }}" method="POST" class="standard-form">
+            <div class="form-group">
+                <label for="search-input">Search Query (Max 100 chars)</label>
+                <div class="search-bar-row">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        name="query" 
+                        value="{{ query }}" 
+                        placeholder="e.g. XSS, Python, Architecture, Protocols..." 
+                        maxlength="100"
+                        class="form-control"
+                    >
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+
+        {% if has_searched and not validation_error %}
+        <div class="results-container">
+            <div class="results-header">
+                <h3>Search Results for: <span class="highlight-query">{{ query }}</span></h3>
+                <span class="results-count">{{ results|length }} result(s) found</span>
+            </div>
+
+            {% if results %}
+            <div class="results-list">
+                {% for item in results %}
+                <div class="result-item">
+                    <span class="category-pill">{{ item.category }}</span>
+                    <h4>{{ item.title }}</h4>
+                    <p>{{ item.summary }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-results-card">
+                <p>No matching local knowledge items found for <strong>{{ query }}</strong>.</p>
+                <span class="suggestion">Try searching for keywords like "XSS", "Flask", "Python", or "Security".</span>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

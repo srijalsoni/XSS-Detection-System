@@ -1,0 +1,9 @@
+POST /profile HTTP/1.1
+Host: 127.0.0.1:5000
+User-Agent: Mozilla/5.0 (Burp-Replay-SecTest)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 130
+Connection: close
+
+bio=Application+security+engineer+interested+in+browser+defenses+and+CSP.&display_name=SecTester&website=https%3A%2F%2Fexample.com

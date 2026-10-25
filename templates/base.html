@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cross-Site Scripting (XSS) Attack Detection System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header class="app-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="{{ url_for('main.home') }}" class="brand-link">
+                    <span class="badge">XSS</span> Cross-Site Scripting Attack Detection
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                <li><a href="{{ url_for('features.search') }}">Search</a></li>
+                <li><a href="{{ url_for('features.comments') }}">Comments</a></li>
+                <li><a href="{{ url_for('features.profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('dashboard.dashboard_view') }}" class="dashboard-nav-btn">Dashboard</a></li>
+                <li><a href="{{ url_for('main.health') }}" target="_blank" class="health-nav-btn">API Health</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="app-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Cross-Site Scripting (XSS) Attack Detection &mdash; Security Monitoring & Telemetry</p>
+            <p class="tagline">Restricted to authorized cybersecurity testing only.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

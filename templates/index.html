@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Cross-Site Scripting (XSS) Attack Detection & Security Monitoring{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="card hero-card">
+        <div class="status-indicator">
+            <span class="dot online"></span> Architecture Active: Full Defense-in-Depth Pipeline
+        </div>
+        <h1>Cross-Site Scripting (XSS) Attack Detection</h1>
+        <p class="subtitle">Defensive Web Application & Security Monitoring Foundation</p>
+        <p class="description">
+            This application provides realistic web input channels engineered to detect, prevent, and monitor
+            Cross-Site Scripting (XSS) attack vectors in real time using dual-layer deterministic rule scanning
+            and machine-learning advisory telemetry. Select an interactive surface below to test form submission and safe presentation.
+        </p>
+
+        <div class="features-grid">
+            <a href="{{ url_for('features.search') }}" class="feature-card">
+                <h3>🔍 Search Portal</h3>
+                <p>Filter knowledge articles via query parameters and form posts with length boundaries and reflected XSS defenses.</p>
+                <span class="card-link">Access Search &rarr;</span>
+            </a>
+            <a href="{{ url_for('features.comments') }}" class="feature-card">
+                <h3>💬 Community Comments</h3>
+                <p>Submit and view persistent user discussions with safe Jinja2 auto-escaping and stored XSS prevention.</p>
+                <span class="card-link">View Comments &rarr;</span>
+            </a>
+            <a href="{{ url_for('features.profile') }}" class="feature-card">
+                <h3>👤 Public Profile</h3>
+                <p>Update biographical details with URL scheme validation (HTTP/HTTPS) and attribute breakout defenses.</p>
+                <span class="card-link">Manage Profile &rarr;</span>
+            </a>
+        </div>
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <h3>Template Engine</h3>
+                <p>Standard Jinja2 (Safe Auto-Escaped)</p>
+            </div>
+            <div class="meta-item">
+                <h3>Validation</h3>
+                <p>Server-Side Length &amp; Presence</p>
+            </div>
+            <div class="meta-item">
+                <h3>Detection Engine</h3>
+                <p>Deterministic Rules + ML Shadow Layer</p>
+            </div>
+            <div class="meta-item">
+                <h3>Monitoring</h3>
+                <p>Real-Time Administrative Dashboard</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

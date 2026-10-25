@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Community Comments — Cross-Site Scripting (XSS) Attack Detection{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="card">
+        <h2>Community Comments &amp; Feedback</h2>
+        <p class="subtitle">Submit discussion topics and thoughts. All comments are parsed through standard template escaping.</p>
+
+        {% if validation_error %}
+        <div class="alert alert-error">
+            <strong>Input Error:</strong> {{ validation_error }}
+        </div>
+        {% endif %}
+
+        {% if success_message %}
+        <div class="alert alert-success">
+            <strong>Success:</strong> {{ success_message }}
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('features.comments') }}" method="POST" class="standard-form">
+            <div class="form-group">
+                <label for="author">Author Name (Required, max 50 chars)</label>
+                <input 
+                    type="text" 
+                    id="author" 
+                    name="author" 
+                    placeholder="Your name or handle" 
+                    maxlength="50" 
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="content">Comment Message (Required, max 500 chars)</label>
+                <textarea 
+                    id="content" 
+                    name="content" 
+                    rows="4" 
+                    placeholder="Enter discussion notes or questions..." 
+                    maxlength="500" 
+                    class="form-control"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+
+        <div class="comments-section">
+            <h3>Recent Discussion Submissions ({{ comments|length }})</h3>
+            <div class="comments-feed">
+                {% for c in comments %}
+                <div class="comment-box">
+                    <div class="comment-meta">
+                        <span class="author-name">👤 {{ c.author }}</span>
+                        <span class="comment-date">{{ c.timestamp }}</span>
+                    </div>
+                    <div class="comment-body">
+                        {{ c.content }}
+                    </div>
+                </div>
+                {% else %}
+                <p class="empty-feed">No comments recorded yet. Submit the first comment above.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
